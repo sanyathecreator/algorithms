@@ -23,4 +23,19 @@ public class Search {
         }
         return -1;
     }
+
+    public static int binarySearchRecursive(int[] nums, int target, int left, int right) {
+        if (left <= right) {
+            int mid = (left + right) / 2;
+
+            if (nums[mid] == target)
+                return mid;
+            else if (nums[mid] < target)
+                return binarySearchRecursive(nums, target, mid + 1, right);
+            else if (nums[mid] > target)
+                return binarySearchRecursive(nums, target, left, mid - 1);
+        }
+
+        return -1;
+    }
 }
